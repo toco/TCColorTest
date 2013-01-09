@@ -6,19 +6,19 @@ Change colors within an iOS App without time-killing trial and error using build
 ###Why:  
 Have you ever had the problem that the tint colors the designer gave you looked really different on the device? 
 
-Even if you found the perfect matching tint color for the navigation bar, it looks different when setting it for the segment control.
+Even if you found the perfect matching tint color for the navigation bar, it looks different when setting it for the segment control?
 
 ![Screenshot1](https://raw.github.com/toco/TCColorTest/screenshots/Screenshot1.png) ![Screenshot1](https://raw.github.com/toco/TCColorTest/screenshots/Screenshot2.png)
 
 
 ###Solution:  
 
-Temporaryly add TCColorTest to your project and set it up.
+Add TCColorTest temporarily to your project and set it up.
 To change the color of an element you just have to select the element by dragging from TCColorTest to the element.
-Then you can then set the color by adjusting the sliders.
+Then you can set the color by adjusting the sliders.
 
 Shake the device to hide/reveal TCColorTest.
-Tap and hold TCColorTest until it is green an then move it where you want it.
+Tap and hold TCColorTest until it is green – then move it about.
 
 ## Installation:
 
@@ -42,7 +42,7 @@ Just download the repo, open the project and hit build and run to try TCColorTes
 
 ## Add support for your own UI elements
 
-You can add support for your own custom UI elements by making your class confirm to the TCColorTestObject protocol in your implementation or by adding support using blocks.
+You can add support for your own custom UI elements by making your class confirm to the TCColorTestObject protocol in your implementation or by using blocks.
 
 
 ```
