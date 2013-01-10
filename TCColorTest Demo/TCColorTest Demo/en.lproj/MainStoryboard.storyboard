@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="aGy-LI-gjJ">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="fRM-cz-niz">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="aGy-LI-gjJ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SdG-sW-uWt">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="YfA-Lj-qnw" kind="relationship" relationship="rootViewController" id="3Wg-5O-CNx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pxR-4p-6h5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-595" y="59"/>
+        </scene>
+        <!--View Controller - TCColorTest-->
+        <scene sceneID="gjV-rl-wG6">
+            <objects>
+                <viewController id="YfA-Lj-qnw" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7u3-ga-qw6">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fF4-k5-QNN">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="254" id="oWl-br-D7S"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                    <segment title="Third"/>
+                                </segments>
+                            </segmentedControl>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="UtZ-Bi-Pwc"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WSz-d1-RMg"/>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="McR-Bn-Dly">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem systemItem="favorites" id="P8q-sm-rGp"/>
+                                    <tabBarItem systemItem="more" id="g93-ti-JlO"/>
+                                </items>
+                            </tabBar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hi!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgx-2T-S04">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="fao-B2-66o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fF4-k5-QNN" firstAttribute="top" secondItem="7u3-ga-qw6" secondAttribute="top" constant="28" id="1Z6-FL-alT"/>
+                            <constraint firstItem="McR-Bn-Dly" firstAttribute="trailing" secondItem="7u3-ga-qw6" secondAttribute="trailing" type="default" id="BI6-gR-j0h"/>
+                            <constraint firstItem="Sgx-2T-S04" firstAttribute="leading" secondItem="WSz-d1-RMg" secondAttribute="leading" type="default" id="Ecq-VF-knX"/>
+                            <constraint firstItem="WSz-d1-RMg" firstAttribute="top" secondItem="7u3-ga-qw6" secondAttribute="top" constant="179" type="user" id="Ezq-JG-qxx"/>
+                            <constraint firstItem="UtZ-Bi-Pwc" firstAttribute="trailing" secondItem="WSz-d1-RMg" secondAttribute="trailing" type="default" id="OIC-nW-3E3"/>
+                            <constraint firstItem="Sgx-2T-S04" firstAttribute="trailing" secondItem="WSz-d1-RMg" secondAttribute="trailing" type="default" id="WID-mz-wvh"/>
+                            <constraint firstItem="UtZ-Bi-Pwc" firstAttribute="leading" secondItem="fF4-k5-QNN" secondAttribute="leading" type="default" id="X8q-UK-ect"/>
+                            <constraint firstItem="fF4-k5-QNN" firstAttribute="trailing" secondItem="UtZ-Bi-Pwc" secondAttribute="trailing" type="default" id="Y4v-Ih-tWs"/>
+                            <constraint firstItem="McR-Bn-Dly" firstAttribute="bottom" secondItem="7u3-ga-qw6" secondAttribute="bottom" type="default" id="ctc-OX-gJa"/>
+                            <constraint firstItem="Sgx-2T-S04" firstAttribute="centerX" secondItem="McR-Bn-Dly" secondAttribute="centerX" type="default" id="dYB-16-iAk"/>
+                            <constraint firstItem="WSz-d1-RMg" firstAttribute="leading" secondItem="UtZ-Bi-Pwc" secondAttribute="leading" type="default" id="eZy-Md-pOR"/>
+                            <constraint firstAttribute="bottom" secondItem="Sgx-2T-S04" secondAttribute="bottom" constant="189" id="fdd-ko-EG3"/>
+                            <constraint firstItem="UtZ-Bi-Pwc" firstAttribute="top" secondItem="7u3-ga-qw6" secondAttribute="top" constant="95" id="p9V-0M-MZr"/>
+                            <constraint firstItem="McR-Bn-Dly" firstAttribute="leading" secondItem="7u3-ga-qw6" secondAttribute="leading" type="default" id="qmi-9r-BzM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="TCColorTest" id="5i2-JN-vma">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="HtK-OD-DgE"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UvV-ZQ-5nu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-130" y="74"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
