@@ -54,6 +54,7 @@ typedef NS_ENUM(NSInteger, TCColorTestMode) {
 @property (nonatomic, strong) IBOutlet UILabel *colorLabel;
 @property (nonatomic, strong) IBOutlet UILabel *classNameLabel;
 @property (nonatomic, strong) IBOutlet UIButton *nilButton;
+@property (nonatomic, strong) IBOutlet UIButton *myCopyButton; //can't use copyButton as name
 @property (nonatomic, strong) IBOutlet UIButton *methodButton;
 
 @property (nonatomic, assign) BOOL disableHitTest;
@@ -138,6 +139,7 @@ static TCColorTest *theSingletonInstance = nil;
     aTestView.center = CGPointMake(CGRectGetMidX(self.rootView.bounds), CGRectGetMidY(self.rootView.bounds));
     
     [aTestView.nilButton addTarget:self action:@selector(deleteColor:) forControlEvents:UIControlEventTouchUpInside];
+    [aTestView.myCopyButton addTarget:self action:@selector(copyColorDescription:) forControlEvents:UIControlEventTouchUpInside];
     [aTestView.methodButton addTarget:self action:@selector(selectMethod:) forControlEvents:UIControlEventTouchUpInside];
     
     [aTestView.redSlider addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
@@ -277,6 +279,7 @@ static TCColorTest *theSingletonInstance = nil;
     self.view.blueSlider.enabled = editable;
     self.view.alphaSlider.enabled = editable;
     self.view.nilButton.enabled = editable;
+    self.view.myCopyButton.enabled = editable;
     self.view.methodButton.enabled = editable;
 }
 
@@ -365,6 +368,14 @@ static TCColorTest *theSingletonInstance = nil;
     self.currentMode = TCColorTestModeColor;
 }
 
+- (IBAction)copyColorDescription:(id)sender {
+    UIPasteboard *pasteBoard = [UIPasteboard generalPasteboard];
+    NSString *elementDescription = [self.currentObject debugDescription];
+    NSString *colorString = [NSString stringWithFormat:@"[UIColor colorWithRed:%f green:%f blue:%f alpha:%f]",self.view.redSlider.value,self.view.greenSlider.value,self.view.blueSlider.value,self.view.alphaSlider.value];
+    NSString *descriptionString = [NSString stringWithFormat:@"// %@\n%@",elementDescription,colorString];
+    [pasteBoard setString:descriptionString];
+    
+}
 
 #pragma mark - color handing
 - (CGFloat) opacityForObject:(id)object {
@@ -601,11 +612,16 @@ static TCColorTest *theSingletonInstance = nil;
         
         self.nilButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [self.nilButton setTitle:@"Nil" forState:UIControlStateNormal];
+        self.nilButton.enabled = NO;
         [self addSubview:self.nilButton];
+        
+        self.myCopyButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [self.myCopyButton setTitle:@"Copy" forState:UIControlStateNormal];
+        self.myCopyButton.enabled = NO;
+        [self addSubview:self.myCopyButton];
         
         self.methodButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [self.methodButton setTitle:@"Method" forState:UIControlStateNormal];
-        
         self.methodButton.enabled = NO;
         [self addSubview:self.methodButton];
         
@@ -647,7 +663,9 @@ static TCColorTest *theSingletonInstance = nil;
     self.alphaSlider.frame = CGRectMake(currentOriginX, currentOriginY, width, normalHeight);
     currentOriginY += normalHeight;
     
-    self.nilButton.frame = CGRectMake(currentOriginX, currentOriginY, width, buttonHeight);
+    CGFloat halfWidth = width/2.0;
+    self.nilButton.frame = CGRectMake(currentOriginX, currentOriginY, halfWidth, buttonHeight);
+    self.myCopyButton.frame = CGRectMake(currentOriginX+halfWidth, currentOriginY, halfWidth, buttonHeight);
     currentOriginY += buttonHeight;
     
     self.colorLabel.frame = CGRectMake(currentOriginX, currentOriginY, width, normalHeight);
